@@ -35,10 +35,23 @@ tm.define("TestScene", {
 	        	anim: "anim_spineboy",
         	}).addChildTo(this).setPosition(SCREEN_CENTER_X, 400);
 
+            spineElement.setMixByName("walk", "jump", 0.2);
+            spineElement.setMixByName("jump", "walk", 0.4);
+
+            spineElement.setAnimationByName(0, "walk", true);
+
 			this.onpointingstart = function() {
 				spineElement.setAnimationByName(0, "jump", false);
 				spineElement.addAnimationByName(0, "walk", true, 0);
 			};
+
+            // var hoge = tm.spine.Element({
+            //     frames: "frames_spineboy",
+            //     image: "img_spineboy",
+            //     anim: "anim_spineboy",
+            // }).addChildTo(this).setPosition(SCREEN_CENTER_X-100, 400);
+            // hoge.setAnimationByName(0, "walk", true);
+
         }.bind(this);
 
         loader.load({
